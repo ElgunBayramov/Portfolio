@@ -7,8 +7,7 @@ import Tech from "./components/Tech";
 import Works from "./components/Works";
 import Feedbacks from "./components/Feedbacks";
 import Contact from "./components/Contact";
-import StarsCanvas from "./components/StarsCanvas";
-
+import StarsCanvas from "./components/canvas/Stars";
 const App = () => {
   return (
     <BrowserRouter>
