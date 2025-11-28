@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { fadeIn, textVariant } from "../utils/motion";
 import { services } from "../constants";
-import { Tilt } from "react-tilt";
 import { SectionWrapper } from "../hoc";
+import Tilt from "react-parallax-tilt";
 
 const ServiceCard = ({ index, title, icon }) => {
   return (
