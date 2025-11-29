@@ -3,7 +3,7 @@ import { styles } from "../styles";
 import ComputersCanvas from "./canvas/Computers";
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto">
+    <section className="relative w-full min-h-screen mx-auto overflow-visible">
       <div
         className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}
       >
@@ -21,7 +21,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <div className="h-[500px] xs:h-[450px] sm:h-screen">
+      <div className="w-full h-[750px] overflow-visible">
         <ComputersCanvas />
       </div>
 
