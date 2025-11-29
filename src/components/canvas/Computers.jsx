@@ -20,7 +20,7 @@ const Computers = ({ isMobile }) => {
       />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.6 : 0.75}
+        scale={isMobile ? 0.55 : 0.75}
         position={isMobile ? [0, -2, -1.5] : [0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
@@ -46,9 +46,9 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
-      frameloop="always" // "demand" yerine "always"
+      frameloop="always"
       shadows
-      dpr={Math.min(window.devicePixelRatio, 2)} // DPR optimizasyonu
+      dpr={Math.min(window.devicePixelRatio, 2)}
       camera={{
         position: isMobile ? [15, 2, 3] : [20, 3, 5],
         fov: isMobile ? 30 : 25,
@@ -66,8 +66,9 @@ const ComputersCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
-          maxPolarAngle={0}
+          maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
+          rotateSpeed={1}
         />
         <Computers isMobile={isMobile} />
       </Suspense>
