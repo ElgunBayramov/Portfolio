@@ -20,9 +20,8 @@ const Computers = ({ isMobile }) => {
       />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.5 : 0.75}
-        position={isMobile ? [0, -2.2, -1.5] : [0, -3.25, -1.5]}
-        rotation={[-0.01, -0.2, -0.1]}
+        scale={isMobile ? 0.4 : 0.75}
+        position={isMobile ? [0, -1.2, 0] : [0, -3.25, -1.5]}
       />
     </mesh>
   );
@@ -49,8 +48,8 @@ const ComputersCanvas = () => {
       shadows={false}
       dpr={[1, 2]}
       camera={{
-        position: isMobile ? [18, 3, 8] : [20, 3, 5],
-        fov: isMobile ? 35 : 25,
+        position: isMobile ? [5, 2, 5] : [20, 3, 5],
+        fov: isMobile ? 40 : 25,
       }}
       gl={{ antialias: true, preserveDrawingBuffer: true }}
     >
