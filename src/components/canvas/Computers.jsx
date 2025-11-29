@@ -20,8 +20,9 @@ const Computers = ({ isMobile }) => {
       />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.4 : 0.75}
-        position={isMobile ? [0, -1.2, 0] : [0, -3.25, -1.5]}
+        scale={isMobile ? 0.7 : 0.75}
+        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
+        rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
   );
@@ -30,7 +31,7 @@ const Computers = ({ isMobile }) => {
 const ComputersCanvas = () => {
   const [isMobile, setisMobile] = useState(false);
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const mediaQuery = window.matchMedia("(max-width: 800px)");
     setisMobile(mediaQuery.matches);
     const handleMediaQueryChange = (event) => {
       setisMobile(event.matches);
@@ -47,10 +48,7 @@ const ComputersCanvas = () => {
       frameloop="always"
       shadows={false}
       dpr={[1, 2]}
-      camera={{
-        position: isMobile ? [5, 2, 5] : [20, 3, 5],
-        fov: isMobile ? 40 : 25,
-      }}
+      camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ antialias: true, preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>

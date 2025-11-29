@@ -21,7 +21,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <div className="w-full h-[750px] overflow-visible">
+      <div className="w-full h-[750px] min-h-[400px] overflow-visible">
         <ComputersCanvas />
       </div>
 
