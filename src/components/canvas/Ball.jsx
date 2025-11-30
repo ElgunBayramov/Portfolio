@@ -7,9 +7,8 @@ import {
   Preload,
   useTexture,
 } from "@react-three/drei";
-
 import CanvasLoader from "../Loader";
-
+import { useIntersection } from "../../hooks/useIntersection";
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
 
@@ -38,19 +37,27 @@ const Ball = (props) => {
 };
 
 const BallCanvas = ({ icon }) => {
-  return (
-    <Canvas
-      frameloop="demand"
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
-        <Ball imgUrl={icon} />
-      </Suspense>
+  const [ref, isVisible] = useIntersection({
+    threshold: 0.3, // Ball üçün daha yüksək threshold
+    triggerOnce: false,
+  });
 
-      <Preload all />
-    </Canvas>
+  return (
+    <div ref={ref} style={{ width: "100%", height: "100%" }}>
+      {isVisible && (
+        <Canvas
+          frameloop="demand"
+          dpr={[1, 2]}
+          gl={{ preserveDrawingBuffer: true }}
+        >
+          <Suspense fallback={<CanvasLoader />}>
+            <OrbitControls enableZoom={false} />
+            <Ball imgUrl={icon} />
+          </Suspense>
+          <Preload all />
+        </Canvas>
+      )}
+    </div>
   );
 };
 
