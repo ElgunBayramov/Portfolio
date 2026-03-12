@@ -142,7 +142,7 @@ const experiences = [
     iconBg: "#fff",
     date: "Feb 2025 - Present",
     points: [
-      "Contributing to the development of a modern web-based application using ReactJS.",
+      "Contributing to the development of a modern web-based application.",
       "Converting Figma designs into responsive, user-friendly interfaces.",
       "Integrating APIs and optimizing application performance.",
       "Implementing and integrating a secure payment gateway system.",
@@ -163,15 +163,17 @@ const experiences = [
     ],
   },
   {
-    title: "Freelance Frontend Developer",
+    title: "Freelance Developer",
     company_name: "Brain Investment Center",
     icon: brainvest,
     iconBg: "#fff",
     date: "Feb 2024 - July 2024",
     points: [
-      "Designed and developed the front-end of a business website using HTML5,CSS3, Bootstrap, and JavaScript.",
+      "Designed and developed the front-end of a business website using HTML5, CSS3, Bootstrap, and JavaScript.",
       "Focused on mobile responsiveness, cross-browser compatibility, and user experience.",
       "Integrated client feedback and debugged UI issues through iterative testing.",
+      "Developed the back-end using ASP.NET and MSSQL, creating APIs for data handling and secure database interactions.",
+      "Implemented server-side logic, authentication, and CRUD operations for business data.",
     ],
   },
   {
