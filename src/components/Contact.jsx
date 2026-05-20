@@ -18,7 +18,21 @@ const Contact = () => {
     message: "",
   });
   const [loading, setLoading] = useState(false);
+  const [buttonText, setButtonText] = useState("Send");
+  useEffect(() => {
+    let variant = localStorage.getItem("ab-variant");
 
+    if (!variant) {
+      variant = Math.random() > 0.5 ? "A" : "B";
+      localStorage.setItem("ab-variant", variant);
+    }
+
+    if (variant === "A") {
+      setButtonText("Send");
+    } else {
+      setButtonText("Contact Me");
+    }
+  }, []);
   const handleChange = (e) => {
     const { target } = e;
     const { name, value } = target;
@@ -30,6 +44,9 @@ const Contact = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    const variant = localStorage.getItem("ab-variant");
+
+    console.log("User clicked variant:", variant);
     setLoading(true);
     emailjs
       .send(
@@ -113,10 +130,11 @@ const Contact = () => {
             />
           </label>
           <button
+            id="cta-btn"
             type="submit"
             className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
           >
-            Send
+            {buttonText}
           </button>
         </form>
       </motion.div>
