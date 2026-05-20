@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef,useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
@@ -18,6 +18,21 @@ const Contact = () => {
     message: "",
   });
   const [loading, setLoading] = useState(false);
+  const [buttonText, setButtonText] = useState("Send");
+  useEffect(() => {
+    let variant = localStorage.getItem("ab-variant");
+
+    if (!variant) {
+      variant = Math.random() > 0.5 ? "A" : "B";
+      localStorage.setItem("ab-variant", variant);
+    }
+
+    if (variant === "A") {
+      setButtonText("Send");
+    } else {
+      setButtonText("Contact Me");
+    }
+  }, []);
   const handleChange = (e) => {
     const { target } = e;
     const { name, value } = target;
@@ -29,6 +44,9 @@ const Contact = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    const variant = localStorage.getItem("ab-variant");
+
+    console.log("User clicked variant:", variant);
     setLoading(true);
     emailjs
       .send(
@@ -42,7 +60,7 @@ const Contact = () => {
           message: form.message,
           date: new Date().toLocaleString(),
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       )
       .then(
         () => {
@@ -60,9 +78,10 @@ const Contact = () => {
           console.error(error);
 
           alert("Ahh, something went wrong. Please try again.");
-        }
+        },
       );
   };
+
   return (
     <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
       <motion.div
@@ -111,10 +130,11 @@ const Contact = () => {
             />
           </label>
           <button
+            id="cta-btn"
             type="submit"
             className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
           >
-            Send
+             {buttonText}
           </button>
         </form>
       </motion.div>
