@@ -46,7 +46,9 @@ const Contact = () => {
     e.preventDefault();
     const variant = localStorage.getItem("ab-variant");
 
-    console.log("User clicked variant:", variant);
+    gtag("event", "cta_click", {
+      variant: variant,
+    });
     setLoading(true);
     emailjs
       .send(
