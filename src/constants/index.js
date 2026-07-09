@@ -149,17 +149,19 @@ const experiences = [
     ],
   },
   {
-    title: "Information Technology Intern",
+    // title: "Information Technology Intern",
+    title: "Frontend Developer Intern",
     company_name:
       "The State Agency for Public Service and Social Innovations under the President of the Republic of Azerbaijan",
     icon: asanService,
     iconBg: "#fff",
     date: "Feb 2024 - May 2024",
     points: [
-      "Supported system operations by logging citizen feedback and managing service queues.",
-      "Provided helpdesk support, including troubleshooting hardware/software issues.",
-      "Assisted in maintaining IT infrastructure and resolving network problems.",
-      "Collaborated with IT staff during system updates and testing.",
+      "Developed and maintained frontend components using JavaScript, HTML and CSS.",
+      "Implemented responsive user interfaces and improved page usability across devices.",
+      "Worked with REST API data to display dynamic content in web applications.",
+      "Fixed frontend bugs and improved existing UI functionality.",
+      "Collaborated with developers and stakeholders to deliver frontend enhancements.",
     ],
   },
   {
